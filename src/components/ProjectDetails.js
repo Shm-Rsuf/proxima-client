@@ -2,10 +2,10 @@ import { currencyFormater } from "../utilis/currencyFormater";
 
 const ProjectDetails = ({ project }) => {
   return (
-    <div className="project bg-slate-800 p-5 rounded-lg shadow-lg border border-slate-700 flex flex-col gap-2 w-[25rem]">
+    <div className="project bg-slate-800 p-5 rounded-lg shadow-lg border border-slate-700 flex flex-col gap-5 w-[25rem]">
       <div className="top">
         <span className="text-sky-400">Id: {project._id}</span>
-        <h3 className="text-2xl">{project.title}</h3>
+        <h3 className="text-2xl capitalize truncate">{project.title}</h3>
         <span className="uppercase font-medium text-slate-500 text-xs tracking-widest">
           {project.tech}
         </span>

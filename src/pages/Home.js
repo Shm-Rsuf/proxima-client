@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import ProjectDetails from "../components/ProjectDetails";
+import ProjectForm from "../components/ProjectForm";
+
 const Home = () => {
   const [projects, setProjects] = useState([]);
   const [loadin, setLoading] = useState(false);
@@ -24,19 +26,19 @@ const Home = () => {
     getProjects();
   }, []);
   return (
-    <div className="home container mx-auto py-20 grid grid-cols-7">
-      <div className="home-left col-span-5">
+    <div className="home container mx-auto py-20 grid grid-cols-3 gap-5">
+      <div className="home-left col-span-2">
         <h2 className="text-sky-400 text-3xl capitalize font-medium mb-10">
           all projects
         </h2>
-        <div className="projects-wrapper flex flex-wrap gap-10">
+        <div className="projects-wrapper flex flex-wrap gap-8">
           {projects &&
             projects.map((project) => (
               <ProjectDetails key={project._id} project={project} />
             ))}
         </div>
       </div>
-      <div className="home-right"></div>
+      <ProjectForm />
     </div>
   );
 };
