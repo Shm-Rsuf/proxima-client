@@ -1,19 +1,23 @@
 import { createContext, useReducer } from "react";
 
 const initialState = {
-  projects: null,
+  projects: [],
 };
 
-const projectReducer = (state, action) => {
+export const projectsReducer = (state, action) => {
   switch (action.type) {
-    case "GET_PROJECTS":
+    case "SET_PROJECTS":
       return {
+        ...state,
         projects: action.payload,
       };
+
     case "CREATE_PROJECT":
       return {
+        ...state,
         projects: [action.payload, ...state.projects],
       };
+
     default:
       return state;
   }
@@ -22,7 +26,7 @@ const projectReducer = (state, action) => {
 export const ProjectContext = createContext();
 
 export const ProjectContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(projectReducer, initialState);
+  const [state, dispatch] = useReducer(projectsReducer, initialState);
 
   return (
     <ProjectContext.Provider value={{ ...state, dispatch }}>
