@@ -1,6 +1,8 @@
 import { currencyFormater } from "../utilis/currencyFormater";
 import { useProjectContext } from "../hooks/useProjectContext";
 
+import moment from "moment";
+
 const ProjectDetails = ({ project }) => {
   const { dispatch } = useProjectContext();
 
@@ -30,10 +32,8 @@ const ProjectDetails = ({ project }) => {
       <div className="mid text-slate-300 flex gap-5">
         <div className="mid-left flex flex-col">
           <span>{currencyFormater(project.budget)}</span>
-          <span>Added: {new Date(project.createdAt).toLocaleTimeString()}</span>
-          <span>
-            Updated: {new Date(project.updatedAt).toLocaleTimeString()}
-          </span>
+          <span>Added: {moment(project.createdAt).format("MMM DD")}</span>
+          <span>Updated: {moment(project.updatedAt).format("MMM DD")}</span>
         </div>
         <div className="mid-right flex flex-col">
           <span>Manager: {project.manager}</span>
