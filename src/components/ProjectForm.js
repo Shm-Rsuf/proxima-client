@@ -115,13 +115,6 @@ const ProjectForm = ({ project, setIsModalOpen, setIsOverlayOpen }) => {
               : "border-slate-500"
           }`}
         />
-        {emptyFields.includes("title") ? (
-          <p className="bg-rose-500/50 p-3 rounded-lg border border-rose-500">
-            please fill title field.
-          </p>
-        ) : (
-          ""
-        )}
       </div>
 
       <div className="form-control flex flex-col gap-2">
