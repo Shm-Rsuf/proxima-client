@@ -1,11 +1,25 @@
 import { useState } from "react";
+import { useLogin } from "../hooks/useLogin";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const { login, loading, error } = useLogin();
+
+  //handle login
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    //user login
+    login(email, password);
+  };
+
   return (
-    <form className="login-form flex flex-col gap-5 py-10 max-w-sm mx-auto">
+    <form
+      onSubmit={handleLogin}
+      className="login-form flex flex-col gap-5 py-10 max-w-sm mx-auto"
+    >
       <h2 className="text-sky-400 text-3xl capitalize font-medium mb-10">
         login
       </h2>
@@ -45,11 +59,17 @@ const Login = () => {
       </div>
 
       <button
+        disabled={loading}
         type="submit"
         className="bg-sky-400 py-2 text-slate-900 rounded-md mt-3 hover:bg-sky-500 duration-300"
       >
         Log in
       </button>
+      {error && (
+        <p className="bg-rose-500/50 p-3 rounded-md border border-rose-500">
+          {error}
+        </p>
+      )}
     </form>
   );
 };
