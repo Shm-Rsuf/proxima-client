@@ -28,7 +28,7 @@ const Home = () => {
   }, [dispatch, user]);
 
   return (
-    <div className="home container mx-auto py-20 grid grid-cols-3 gap-5">
+    <div className="home container mx-auto py-10 grid grid-cols-3 gap-5">
       <div className="home-left col-span-2">
         <h2 className="text-sky-400 text-3xl capitalize font-medium mb-10">
           {projects.length < 1 ? "no projects" : "all project"}
