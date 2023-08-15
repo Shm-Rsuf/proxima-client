@@ -27,7 +27,7 @@ Welcome to the Proxima project repository! This web application uses CRUD operat
 # Install (Server)
 
 1. Clone the repository: `https://github.com/Shm-Rsuf/proxima-server.git`
-2. Navigate to the client directory: `proxima-server`
+2. Navigate to the client directory: `cd proxima-server`
 3. Install dependencies: `npm install`
 4. Create a `.env` file in the server directory and set the necessary environment variables (e.g., MongoDB URI, JWT secret key).
 - `MONGODB_URI`: the MongoDB connection string
